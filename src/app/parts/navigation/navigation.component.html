@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <div class="navbar-nav" *ngIf="!currentUser || currentUser.role == Role.Buyer">
+
+            <a class="nav-item nav-link "
+               routerLink="/">
+                Home
+            </a>
+
+            <!-- <a class="nav-item nav-link "
+               routerLink="/products">
+                Products
+            </a> -->
+
+            <a class="nav-item nav-link "
+               routerLink="/category/1">
+                Electronics
+            </a>
+            <a class="nav-item nav-link"
+               routerLink="/category/2">
+                Computer
+            </a>
+            <a class="nav-item nav-link "
+               routerLink="/category/3">
+                Fashion
+            </a>
+            <a class="nav-item nav-link"
+               routerLink="/category/4">
+                Building Tools
+            </a>
+        </div>
+
+        <div class="navbar-nav ml-auto">
+            <ng-container *ngIf="currentUser; else noUser">
+                <a *ngIf="!currentUser || currentUser.role == Role.Buyer"
+                        class="nav-item nav-link " routerLink="/cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    Cart
+                </a>
+                <a class="nav-item nav-link " routerLink="/order">
+                    <i class="fas fa-list-ul"></i>
+                    Orders
+                </a>
+                <a class="nav-item nav-link " routerLink="/profile">
+                    {{name}}
+                </a>
+
+                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
+                        class="nav-item nav-link " routerLink="product/new">
+                    Add Product
+                </a>
+                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
+                        class="nav-item nav-link " routerLink="product/image">
+                    Upload Image
+                </a>
+                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
+                        class="nav-item nav-link " routerLink="/myproducts">
+                    My Products
+                </a>
+
+                <a *ngIf="!currentUser || currentUser.role == Role.Admin"
+                        class="nav-item nav-link " routerLink="admin/merchant">
+                    Manage Merchant
+                </a>
+                <a class="nav-item nav-link " (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">
+                    Sign Out
+                </a>
+
+            </ng-container>
+
+            <ng-template #noUser>
+                <ul class="navbar-nav ">
+                    <li class="nav-item dropdown">
+                        <a routerLink="#" routerLinkActive="active" class="nav-link dropdown-toggle" id="navDropDownLink"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Register
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navDropDownLink">
+                            <a class="dropdown-item" routerLink="/register" routerLinkActive="active">Signup As Buyer</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" routerLink="/merchant_register" routerLinkActive="active">Signup as Merchant</a>
+                        </div>
+                    </li>
+                </ul>
+                <a class="nav-item nav-link " routerLink="/login">
+                    Login
+                </a>
+
+
+
+            </ng-template>
+
+        </div>
+    </div>
+</nav>
