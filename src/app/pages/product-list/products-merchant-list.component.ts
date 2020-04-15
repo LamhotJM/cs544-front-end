@@ -9,37 +9,19 @@ import {UserService} from '../../services/user.service';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsMerchantListComponent implements OnInit {
-
-  //category_id: number;
   products: Object;
 
-  constructor(private userService: UserService,private route: ActivatedRoute, private service: ProductService) { }
+  constructor(private userService: UserService, private route: ActivatedRoute, private service: ProductService) { }
 
   ngOnInit() {
-    // this.route.params.subscribe(params => {
-    //   this.category_id = +params['id'];
-    // });
     const account = this.userService.currentUserValue.account;
-    console.log("products-merchant-list account:  "+account);
+    console.log('products-merchant-list account:  ' + account);
     this.service.getProductsByMerchant(account).subscribe(
       data =>   {
         this.products = data;
         console.log(this.products);
       }
     );
-
-    // if (this.category_id) {
-    //     this.service.getProductByCategory(this.category_id).subscribe(
-    //       data => this.products = data['products']
-    //     );
-    // } else {
-    //     this.service.getProducts().subscribe(
-    //       data =>   {
-    //         this.products = data;
-    //         console.log(this.products);
-    //       }
-    //     );
-    // }
   }
 
 }

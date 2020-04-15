@@ -8,7 +8,7 @@
             </a>
 
             <a class="nav-item nav-link "
-               routerLink="/products">
+               routerLink="/feeds">
                 Products Feeds
             </a>
 
@@ -39,10 +39,6 @@
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
                         class="nav-item nav-link " routerLink="product/new">
                     Add Product
-                </a>
-                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
-                        class="nav-item nav-link " routerLink="product/image">
-                    Upload Image
                 </a>
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
                         class="nav-item nav-link " routerLink="/myproducts">
