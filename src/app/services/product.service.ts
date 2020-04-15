@@ -4,6 +4,7 @@ import {Observable, of} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {ProductInfo} from '../models/productInfo';
 import { LocaleStorageService } from '../services/locale-storage.service';
+import { HttpHeaders } from '@angular/common/http';
 
 import {apiUrl} from '../../environments/environment';
 
@@ -13,6 +14,8 @@ import {apiUrl} from '../../environments/environment';
 export class ProductService {
 
     private productUrl = `${apiUrl}/products/list/`;
+
+    private productFeedUrl = `http://localhost:8081/api/products`;
     private categoryUrl = `${apiUrl}/category`;
 
     constructor(private http: HttpClient, private localStorage: LocaleStorageService) {
@@ -83,7 +86,11 @@ export class ProductService {
         return this.http.get(`${apiUrl}/products/list/`);
     }
 
-    getProductsByMerchant(merchantAccount : string) {
+    getProductsFeeds() {
+        return this.http.get(`${this.productFeedUrl}`);
+    }
+
+    getProductsByMerchant(merchantAccount: string) {
         return this.http.get(`${apiUrl}/products/list/${merchantAccount}`);
     }
 

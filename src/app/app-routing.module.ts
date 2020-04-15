@@ -14,6 +14,7 @@ import {UserDetailComponent} from './pages/user-edit/user-detail.component';
 import {ProductEditComponent} from './pages/product-edit/product-edit.component';
 import {UploadProductImageComponent} from './pages/merchant/admin-product/upload-product-image/upload-product-image.component';
 import {ProductsMerchantListComponent} from './pages/product-list/products-merchant-list.component';
+import {ProductsFeedsListComponent} from './pages/product-list/products-feeds-list.component';
 import {Role} from './enum/Role';
 import {ProductsListComponent} from './pages/product-list/products-list.component';
 
@@ -26,7 +27,7 @@ const routes: Routes = [
     {path: 'product/new', component: ProductEditComponent},
     {path: 'image/:id', component: UploadProductImageComponent, canActivate: [AuthGuard]},
     {path: 'products', component: ProductsListComponent},
-    //{path: 'myproducts', component: ProductsMerchantListComponent},
+    {path: 'feeds', component: ProductsFeedsListComponent},
     {path: 'category', component: CardComponent},
     {path: 'login', component: LoginComponent},
     {path: 'logout', component: LoginComponent},
@@ -73,7 +74,6 @@ const routes: Routes = [
 @NgModule({
     declarations: [],
     imports: [
-     
         RouterModule.forRoot(routes)// {onSameUrlNavigation: 'reload'}
     ],
     exports: [RouterModule]

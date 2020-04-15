@@ -7,36 +7,27 @@
                 Home
             </a>
 
-            <!-- <a class="nav-item nav-link "
-               routerLink="/products">
-                Products
-            </a> -->
+            <a class="nav-item nav-link "
+               routerLink="/feeds">
+                Products Feeds
+            </a>
 
             <a class="nav-item nav-link "
                routerLink="/category/1">
-                Electronics
-            </a>
-            <a class="nav-item nav-link"
-               routerLink="/category/2">
-                Computer
-            </a>
-            <a class="nav-item nav-link "
-               routerLink="/category/3">
                 Fashion
             </a>
             <a class="nav-item nav-link"
-               routerLink="/category/4">
-                Building Tools
+               routerLink="/category/2">
+                Electronics
+            </a>
+            <a class="nav-item nav-link "
+               routerLink="/category/3">
+                Dress
             </a>
         </div>
 
         <div class="navbar-nav ml-auto">
             <ng-container *ngIf="currentUser; else noUser">
-                <a *ngIf="!currentUser || currentUser.role == Role.Buyer"
-                        class="nav-item nav-link " routerLink="/cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    Cart
-                </a>
                 <a class="nav-item nav-link " routerLink="/order">
                     <i class="fas fa-list-ul"></i>
                     Orders
@@ -48,10 +39,6 @@
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
                         class="nav-item nav-link " routerLink="product/new">
                     Add Product
-                </a>
-                <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
-                        class="nav-item nav-link " routerLink="product/image">
-                    Upload Image
                 </a>
                 <a *ngIf="!currentUser || currentUser.role == Role.Merchant"
                         class="nav-item nav-link " routerLink="/myproducts">

@@ -22,7 +22,7 @@ export class User {
     bizName: string;
 
     constructor() {
-        this.enabled = true;
+        this.enabled = false;
         this.role = Role.Buyer;
     }
 }
